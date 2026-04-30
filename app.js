@@ -16,7 +16,34 @@ const port = process.env.PORT || 3000;
 
 //Routes
 app.get('/', (req, res) => {
-    res.send('Hello World!!');
+    res.send(
+        `<ul>
+            <li><button onclick="window.location.href='/signup'">Sign up</button></li>
+            <li><button onclick="window.location.href='/login'">Login</button></li>
+        </ul>`
+    );
+});
+
+app.get('/signup', (req, res) => {
+    res.send(
+        `<header>
+            <h1>Create User</h1>
+        </header>
+        <input type="text" name="username" placeholder="Username" required> <br>
+        <input type="email" name="email" placeholder="Email" required> <br>
+        <input type="password" name="password" placeholder="Password" required> <br>
+        <button type="submit">Create</button>`
+    );
+});
+
+app.get('/login', (req, res) => {
+    res.send(
+        `<form action="/login" method="post">
+            <input type="text" name="username" placeholder="Username" required> <br>
+            <input type="password" name="password" placeholder="Password" required> <br>
+            <button type="submit">Login</button>
+        </form>`
+    );
 });
 
 // Handle 404 errors
