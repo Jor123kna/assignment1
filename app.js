@@ -1,4 +1,3 @@
-
 require('./utils.js');
 require('dotenv').config(); 
 const express = require('express');
@@ -48,11 +47,10 @@ app.get('/', (req, res) => {
 
     if (!req.session.userId) {
         res.send(`
-            <h1>Home</h1>
-            <ul>
-                <li><button onclick="window.location.href='/signup'">Sign up</button></li>
-                <li><button onclick="window.location.href='/login'">Login</button></li>
-            </ul>
+            <h1>Welcome</h1><br>
+            <button onclick="window.location.href='/signup'">Sign up</button><br>
+            <button onclick="window.location.href='/login'">Login</button>
+            
         `);
     } else {
         res.send(`
@@ -184,8 +182,8 @@ app.get('/members', (req, res) => {
         <p>Welcome ${req.session.name}</p>
         <img src='${randomImage}' style='width:250px;'>
         <br><br>
-        <button onclick="window.location.href='/logout'">Sign out</button>    `);
-
+        <button onclick="window.location.href='/logout'">Sign out</button>   
+     `);
 });
 
 // LOGOUT
